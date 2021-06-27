@@ -1,0 +1,32 @@
+<%- include("../sections/header") %>
+
+    <link rel="stylesheet" href="css/login.css">
+    </head>
+
+    <body>
+        <%- include("../sections/navbar") %>
+
+        <div class="container w-50 mx-auto py-4">
+            <div class="card p-3">
+                <h3 class="text-center text-dark">Sign In</h3>
+
+                <form action="/login" method="POST">
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="password" class="form-control" name="username" id="username"
+                            placeholder="Username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <%- include("../sections/footer") %>
