@@ -8,10 +8,12 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const { isLoggedIn } = require("./middleware/middleware");
 const flash = require("connect-flash");
+require("dotenv").config();
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(
-    "mongodb+srv://rohit:7AjPtmIOnZKUE7hs@mern-learning.uou9x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    `mongodb+srv://${process.env.MONGODB_DATABASE_USERNAME}:${process.env.MONGODB_DATABASE_ACCESS_KEY}@mern-learning.uou9x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -56,6 +58,6 @@ app.get("/", isLoggedIn, (req, res) => {
   res.render("layouts/main-layout");
 });
 
-app.listen(3000, () => {
-  console.log("Server running at port 3000");
+app.listen(PORT, () => {
+  console.log(`Server running at port ${PORT}`);
 });
