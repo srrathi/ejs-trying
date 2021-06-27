@@ -20,17 +20,19 @@ router.post("/register", async (req, res) => {
 
     const newUser = await User.register(user, req.body.password);
     console.log(newUser);
-    res.status(200).send(newUser);
+    res.status(200).redirect("/login");
   } catch (error) {
     req.flash("error", error.message);
     res.redirect("/register");
   }
 });
 
+// To get the login page
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
+// Login the user
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -41,6 +43,8 @@ router.post(
   }
 );
 
+
+// Logout user
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/login");

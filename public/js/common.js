@@ -3,8 +3,13 @@ const refreshTweets = async () => {
 
   const tweets = await axios.get("/api/post");
 
-  for (let post of tweets.data){
-      $("#allTweets").append(`<li>${post.content} by ${post.postedBy}</li>`)
+  for (let post of tweets.data) {
+    $("#allTweets").append(`<div class="card my-3">
+    <div class="card-body">
+        <h5 class="card-title">@${post.postedBy}</h5>
+        <p class="card-text">${post.content}</p>
+    </div>
+</div>`);
   }
   console.log(tweets);
 };
@@ -17,6 +22,6 @@ $("#submitPostButton").click(async () => {
   const newPost = await axios.post("/api/post", { content: postText });
   console.log(newPost);
 
+  refreshTweets();
   $("#post-text").val("");
-  refreshTweets()
 });

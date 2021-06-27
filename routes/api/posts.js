@@ -10,7 +10,6 @@ router.get("/api/post", async (req, res) => {
 });
 
 // To add new Posts
-
 router.post("/api/post", isLoggedIn, async (req, res) => {
   const post = {
     content: req.body.content,

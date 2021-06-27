@@ -8,7 +8,7 @@
 
         <div class="container w-50 mx-auto py-4">
             <div class="card shadow-lg rounded p-3">
-                <h3 class="text-center text-dark">Sign In</h3>
+                <h3 class="text-center text-dark">Log in to Twitter</h3>
 
                 <form action="/login" method="POST">
 
@@ -22,6 +22,9 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password"
                             placeholder="Password">
+                    </div>
+                    <div class="my-2">
+                        <p class="text-dark">Don't have an Account ?<a href="/register"> Create your Account</a></p>
                     </div>
 
                     <button type="submit" class="btn w-100 btn-primary">Submit</button>

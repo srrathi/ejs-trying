@@ -28,6 +28,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Routes
 const authRoutes = require(path.join(__dirname, "routes/authRoutes.js"));
@@ -52,7 +53,7 @@ app.use(authRoutes);
 
 // Using Apis
 app.use(postsApiRoute);
-app.use(express.json());
+
 
 app.get("/", isLoggedIn, (req, res) => {
   res.render("layouts/main-layout");
