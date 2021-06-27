@@ -27,7 +27,11 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 
+//Routes
 const authRoutes = require(path.join(__dirname, "routes/authRoutes.js"));
+
+//Apis
+const postsApiRoute = require("./routes/api/posts");
 
 app.use(
   session({ secret: "weneedasecret", resave: false, saveUninitialized: true })
@@ -41,12 +45,17 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Using Routes
 app.use(authRoutes);
 
+// Using Apis
+app.use(postsApiRoute);
+app.use(express.json());
+
 app.get("/", isLoggedIn, (req, res) => {
-  res.render("home");
+  res.render("layouts/main-layout");
 });
 
-app.listen(4000, () => {
-  console.log("Server running at port 4000");
+app.listen(3000, () => {
+  console.log("Server running at port 3000");
 });

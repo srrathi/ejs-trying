@@ -1,0 +1,43 @@
+:root {
+  --blue: #0099ff;
+  --buttonHoverBg: #d4edff;
+  --lightGrey: rgb(230, 236, 240);
+  --spacing: 15px;
+}
+nav {
+  height: 100%;
+  align-items: flex-end;
+}
+nav a {
+  display: block;
+  width: 55px;
+  height: 55px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--blue);
+}
+
+nav a:hover {
+  border-radius: 50%;
+  background-color: var(--buttonHoverBg);
+  text-decoration: none;
+}
+
+.main-container {
+  border-left: 1px solid var(--lightGrey);
+  border-right: 1px solid var(--lightGrey);
+}
+.titleContainer {
+  height: 53px;
+  align-items: center;
+  border-bottom: 1px solid var(--lightGrey);
+  flex-shrink: 0;
+}
+
+#submitPostButton {
+  background-color: var(--blue);
+  color: white;
+}

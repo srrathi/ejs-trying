@@ -1,0 +1,51 @@
+<%- include("../sections/header") %>
+
+    <link rel="stylesheet" href="./css/main.css">
+    </head>
+
+    <body>
+        <div class="container-fluid p-2">
+            <div class="row">
+                <div class="col-2">
+                    <nav class="d-flex flex-column">
+                        <a class="p-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="p-1" href="#"><i class="fas fa-home"></i></a>
+                        <a class="p-1" href="#"><i class="fas fa-search"></i></a>
+                        <a class="p-1" href="#"><i class="far fa-bell"></i></a>
+                        <a class="p-1" href="#"><i class="fas fa-envelope"></i></a>
+                        <a class="p-1" href="#"><i class="fas fa-user"></i></a>
+                        <a class="p-1" href="#"><i class="fas fa-sign-out-alt"></i></a>
+
+                    </nav>
+
+                </div>
+                <div class="main-container col-10 col-md-8 col-lg-6">
+                    <div class="">
+                        <h1 class="font-weight-bold titleContainer">Home</h1>
+                        <div class="d-flex p-2">
+                            <div class="mb-3 pr-2 postContainer">
+                                <img width="200px" class="img-fluid" src="./images/profile.jpg" alt="User Profile Image">
+                            </div>
+                            <div class="w-100 textareaContainer">
+                                <div class="form-group">
+                                    <textarea class="border-0 form-control" placeholder="What's happening?" id="post-text" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-100 btn" id="submitPostButton" type="submit">Post <i class="fas text-white fa-paper-plane"></i></button>
+                    </div>
+
+                    <div id="allTweets">
+                        
+                    </div>
+
+                </div>
+                <div class="d-none d-md-block col-md-2 col-lg-4">
+                    Sidebar
+                </div>
+
+
+            </div>
+        </div>
+
+        <%- include("../sections/footer") %>
