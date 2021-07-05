@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "/images/profilePic.jpeg",
   },
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
 });
 
 userSchema.plugin(passportLocalMongoose);
